@@ -3,17 +3,19 @@ import Heading from "../../components/Heading";
 import Link from "next/link";
 import styles from '../../styles/Players.module.scss'
 
-export const playersData = [
-    {id: '1', firstName: 'Alexxxxxxxxxxxx', lastName: 'Lowson', age: 12, position: 'striker', skills: []},
-    {id: '2', firstName: 'Sam', lastName: 'Jameson', age: 13, position: 'defender', skills: []},
-    {id: '3', firstName: 'Jack', lastName: 'Gadner', age: 12, position: 'midfielder', skills: []},
-];
 
 export const getStaticProps = async () => {
+    const response = await fetch(`${process.env.API_HOST}/players`);
+    const data = await response.json();
+
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
+
     return {
-        props: {
-            players: playersData,
-        },
+        props: { players: data },
     }
 };
 
