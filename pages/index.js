@@ -7,7 +7,7 @@ const Home = () => (
     <Head>
       <title>Home</title>
     </Head>
-    <Heading text="Next.js Application" />
+    <Heading text="Next.js Application for Football Managers" />
   </div>
 );
 

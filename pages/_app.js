@@ -5,7 +5,10 @@ import '../styles/globals.scss';
 const MyApp = ({ Component, pageProps }) => (
   <Layout>
     <Head>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
+      <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      />
         <title>Football Manager</title>
     </Head>
     <main>

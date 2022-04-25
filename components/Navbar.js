@@ -15,12 +15,20 @@ const Navbar = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
-        <Image src="/logo.png" width={60} height={60} alt="webDev" />
+        <Image
+            alt="logo"
+            src="/vercel.svg"
+            width={60}
+            height={60}
+        />
       </div>
       <div className={styles.links}>
         {navigation.map(({ id, title, path }) => (
           <Link key={id} href={path}>
-            <a className={pathname === path ? styles.active : null}>{title}</a>
+            <a className={pathname === path
+                        ? styles.active
+                        : null}>{title}
+            </a>
           </Link>
         ))}
       </div>
