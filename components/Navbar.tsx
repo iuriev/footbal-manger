@@ -25,9 +25,9 @@ const Navbar = () => {
       <div className={styles.links}>
         {navigation.map(({ id, title, path }) => (
           <Link key={id} href={path}>
-            <a className={pathname === path
+            <a className={pathname  === path
                         ? styles.active
-                        : null}>{title}
+                        : ''}>{title}
             </a>
           </Link>
         ))}

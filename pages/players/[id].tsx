@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Heading from "../../components/Heading";
+import IPlayer from "../../types/types";
 
 export const getStaticPaths = async () => {
     const response = await fetch(`${process.env.API_HOST}/players`);
-    const data = await response.json();
+    const data: IPlayer[] = await response.json();
     const paths = data.map(({ id }) => ({
         params: { id: id.toString() }
     }));
@@ -14,10 +15,17 @@ export const getStaticPaths = async () => {
     }
 };
 
-export const getStaticProps = async (context) => {
+interface Icontext {
+    params: {
+        id: string,
+    }
+}
+
+
+export const getStaticProps = async (context: Icontext) => {
     const { id } = context.params;
     const response = await fetch(`${process.env.API_HOST}/players`);
-    const data = await response.json();
+    const data: IPlayer[] = await response.json();
 
     if (!data) {
         return {
@@ -32,7 +40,7 @@ export const getStaticProps = async (context) => {
     }
 };
 
-const Player = ({player}) => {
+const Player = ({player} : {player: IPlayer}) => {
     return (
         <>
             <Head>

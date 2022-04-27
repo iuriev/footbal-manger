@@ -6,7 +6,7 @@ const Contacts = () => (
     <Head>
       <title>Contacts</title>
     </Head>
-    <Heading text="Contacts list:" />
+    <Heading text="Contacts list:" tag={undefined} />
   </>
 );
 
